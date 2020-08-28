@@ -1240,6 +1240,13 @@ async function _fromTokenizer(tokenizer) {
 			mime: 'video/mp2t'
 		};
 	}
+	
+	if (check([0x47], {offset: 188})) {
+		return {
+			ext: 'ts',
+			mime: 'video/mp4v-es'
+		};
+	}
 
 	if (check([0x42, 0x4F, 0x4F, 0x4B, 0x4D, 0x4F, 0x42, 0x49], {offset: 60})) {
 		return {
